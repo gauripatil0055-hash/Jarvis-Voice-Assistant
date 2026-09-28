@@ -1,0 +1,6 @@
+.venu/
+.env
+__pycache__/
+*.pyc
+jarvis.db
+temp.mp3
