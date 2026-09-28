@@ -1,7 +1,10 @@
 import speech_recognition as sr
 import webbrowser
 import pyttsx3
-import musicLibrary
+try:
+    import musicLibrary
+except ModuleNotFoundError:
+    musicLibrary = None
 import requests
 from gtts import gTTS
 import pygame
@@ -96,7 +99,7 @@ def processCommand(c):
         if len(parts) > 1:
             song = parts[1]
 
-            if song in musicLibrary.music:
+            if musicLibrary is not None and song in musicLibrary.music:
                 webbrowser.open(musicLibrary.music[song])
             else:
                 speak("Sorry, song not found.")
